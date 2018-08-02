@@ -1,0 +1,34 @@
+class servidor {
+
+	file{   "/var/www/html/":
+                source => "puppet:///modules/init/index.html",
+                ensure => present,
+
+}
+
+case $::osfamily {
+"RedHat": {
+
+$pacotes = [ "vim","htop","epel-release","httpd" ]
+
+}
+
+"Debian": {
+
+$pacotes = [ "htop","sysstat","figlet","apache2" ]
+exec{ "atualizar_repo":
+        command => "/usr/bin/apt update"
+
+}
+}
+}
+package{ $pacotes:
+        ensure => present,
+}
+
+$user = [ "devops","suporte" ]
+user{ $user:
+        ensure => present,
+}
+
+}
