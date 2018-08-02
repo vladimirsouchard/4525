@@ -1,0 +1,6 @@
+---
+- name: Execucao da role docker
+  hosts: docker
+  roles:
+   - docker
+

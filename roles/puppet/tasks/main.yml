@@ -1,0 +1,9 @@
+# tasks file for puppet
+- name: Instalando o repositorio do Puppet em Debian e CentOS
+  include: repo.yml  
+  
+- name: Instalando o PuppetServer na maquina DEVOPS
+  include: instalar.yml
+
+- name: Instalando o Puppet Agent em maquinas Debian e CentOS
+  include: agent.yml

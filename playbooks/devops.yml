@@ -1,0 +1,5 @@
+---
+- name: chamando a role puppet
+  hosts: all
+  roles:
+   - puppet

@@ -1,0 +1,5 @@
+---
+- name: Criando uma infra com o ansible
+  hosts: docker
+  roles:
+   - container 

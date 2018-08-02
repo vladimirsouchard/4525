@@ -1,0 +1,40 @@
+---
+# tasks file for container
+
+- name: Criando o volume Index para os containers
+  docker_volume:
+   name: index
+
+
+- name: Criando o container index1
+  docker_container:
+   name: index1
+   image: httpd 
+   state: started
+   volumes:
+    - index:/usr/local/apache2/htdocs
+   ports:
+    - 8080:80
+
+- name: Criando o container index2
+  docker_container:
+   name: index2
+   image: httpd
+   state: started
+   volumes:
+    - index:/usr/local/apache2/htdocs
+   ports:
+    - 8081:80
+
+- name: criando o index
+  file:
+   path: /var/lib/docker/volumes/index/_data/index.html
+   state: touch
+
+
+- name: enviando o arquivo index.html para os containers
+  blockinfile:
+   path: /var/lib/docker/volumes/index/_data/index.html
+   block: | 
+    Criei uma index com o ansible Gremio Campeao
+

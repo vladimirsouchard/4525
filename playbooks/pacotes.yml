@@ -1,0 +1,34 @@
+---
+
+- name: Instalando pacotes Debian
+  hosts: all
+  vars:
+   - pacote: pacote
+  tasks:
+   - name: instalando pacote
+     apt: 
+      name: "{{ item }}"
+      state: present
+     with_items:
+       - vim
+       - nano
+       - sl
+       - ccze
+       - dnsutils
+     when: ansible_os_family == "Debian"
+
+- name: Instalando pacotes RedHat
+  hosts: all
+  vars:
+   - pacote: pacote
+  tasks:
+   - name: instalando pacote
+     yum:
+      name: "{{ item }}"
+      state: present
+     with_items:
+       - vim
+       - nano
+       - sl
+       - ccze
+     when: ansible_os_family == "RedHat"

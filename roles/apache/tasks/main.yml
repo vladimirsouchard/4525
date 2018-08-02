@@ -1,0 +1,7 @@
+---
+# tasks file for apache
+- name: chamando a playbook instalar
+  include: instalar.yml
+
+- name: chamando a playbook file
+  include: file.yml

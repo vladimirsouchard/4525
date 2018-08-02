@@ -1,0 +1,10 @@
+---
+# tasks file for docker
+- name: chamando a playbook repositorio do Docker
+  include: repositorio.yml
+
+- name: chamando a playbook install dos pacotes necessarios
+  include: pacotes.yml
+
+- name: instalando o Docker
+  include: docker.yml

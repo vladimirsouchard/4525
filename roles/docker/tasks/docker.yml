@@ -1,0 +1,5 @@
+- name: Instalando o pacote Docker
+  package:
+   name: docker-ce
+   state: present
+   update_cache: yes

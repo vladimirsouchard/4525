@@ -1,0 +1,4 @@
+- name: instalando o apache
+  apt:
+   name: apache2
+  when: ansible_os_family == "Debian"

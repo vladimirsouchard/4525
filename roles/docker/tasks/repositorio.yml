@@ -1,0 +1,10 @@
+- name: Incluindo a chave e o repositorio para instalacao do Docker
+  apt_key:
+   url: https://download.docker.com/linux/ubuntu/gpg
+   state: present
+
+- name: Download do repositorio do Docker para distro Xenial
+  apt_repository:
+   repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} stable
+   state: present
+

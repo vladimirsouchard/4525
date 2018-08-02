@@ -1,0 +1,9 @@
+---
+- name: Atualiza DNS
+  hosts: all
+  tasks:
+   - name: Atualizando arquivo /etc/resolv.conf
+     copy:
+      src: resolv.conf
+      dest: /etc/resolv.conf
+
